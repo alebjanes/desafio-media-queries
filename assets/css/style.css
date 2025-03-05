@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 6fr 1fr;
+    grid-template-areas: 
+    'header'
+    'order-by'
+    'main'
+    'footer';
+    font-family: "Raleway", sans-serif;
+    height: 100vh;
+}
+
+header {
+    grid-area: header;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #411F57;
+    color: #E8E3E5;
+}
+
+header i {
+    margin-right: 10px;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+.nav-menu {
+    display: none;
+}
+
+.menu-icon {
+    cursor: pointer;
+}
+
+.order-by {
+    grid-area: order-by;
+    padding: 10px;
+    font-size: 1.2em;
+    display: flex;
+    flex-direction: column;
+    background-color: #E8E3E5;
+    align-items: center;
+    justify-content: center;
+}
+
+select {
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 0.9em;
+    border-radius: 5px;
+    border: none;
+    width: 80%
+}
+
+/* Main */
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    grid-area: main;
+    padding: 30px;
+    gap: 10px;
+    background-color: #e8e3e599;
+}
+
+.product-gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    padding: 20px;
+}
+
+.page-selector {
+    display: flex;
+    justify-content: center;
+}
+
+
+table {
+    border-radius: 20px;
+    border-collapse: collapse;
+    color: #a9bea5;
+}
+
+table td {
+    border: rgb(224, 224, 224) 0.2px solid;
+    padding: 8px;
+}
+
+/* Product card */
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 0.5px solid #C6ACB8;
+    text-align: center;
+    padding: 20px;
+    border-radius: 5px;
+    gap: 10px;
+    box-shadow: 2px 2px 5px #BDD0B9;
+    align-self: start;
+}
+
+.product-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.product-card button {
+    background-color: #a9bea5;
+    color: white;
+    border: none;
+    width: 40%;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.product-tablet {
+    display: none;
+}
+
+.product-desktop {
+    display: none;
+}
+
+/* Footer */
+
+footer {
+    grid-area: footer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #A7819A;
+    padding: 20px;
+    color: white;
+    text-align: center;
+}
+
+/* Media queries */
+
+@media (min-width: 576px){
+    body {
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+        grid-template-rows: 1fr 8fr 1fr;
+        grid-template-areas: 
+        'header header'
+        'order-by main'
+        'footer footer';
+    }
+
+    .product-gallery {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .product-tablet {
+        display: flex;
+    }
+
+    .nav-menu {
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        padding: 0;
+        gap: 30px;
+        font-size: 1.2em;
+        text-align: center;
+    }
+
+    .menu-icon {
+        display: none;
+    }
+
+    .order-by {
+        justify-content: flex-start;
+    }
+
+    .product-hide {
+        display: flex;
+    }
+}
+
+@media (min-width: 992px) {
+    body {
+        grid-template-columns: 1fr 5fr;
+        grid-template-areas: 
+        'header order-by'
+        'header main'
+        'footer main';
+    }
+
+    .product-gallery {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    
+    .product-desktop {
+        display: flex;
+    }
+
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 20px;
+    }
+
+    .nav-menu {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        padding: 0;
+        gap: 10px;
+        font-size: 1.2em;
+        text-align: center;
+    }
+
+    .menu-icon {
+        display: none;
+    }
+}
